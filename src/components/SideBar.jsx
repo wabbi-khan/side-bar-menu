@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
@@ -52,12 +52,25 @@ const routes = [
   },
 ];
 const SideBar = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className='main-container'>
       <motion.div animate={{ width: "200px" }} className='sidebar'>
+        <div className='top_section'>
+          <h1 className='logo'>SideBar Menu</h1>
+          <div className='bars'>
+            <FaBars />
+          </div>
+        </div>
+        <div className='search'>
+          <div className='search_icon'>
+            <BiSearch />
+          </div>
+          <input placeholder='Search ...' />
+        </div>
         <section className='routes'>
           {routes.map((item) => (
-            <NavLink to={item.path} key={item.name}>
+            <NavLink to={item.path} key={item.name} className='link'>
               <div className='icon'> {item.icon} </div>
               <div className='link_text'> {item.name} </div>
             </NavLink>

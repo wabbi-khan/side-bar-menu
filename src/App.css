@@ -9,3 +9,56 @@
     color: white;
     height: 100vh;
 }
+
+.routes {
+    color: white;
+}
+
+.top_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.logo {
+    font-size: 18px;
+    line-height: 0;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    height: 30px;
+    padding: 10px;
+}
+
+.search input {
+    border: none;
+    width: 160px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background: rgb(238, 238, 238);
+    padding: 5px 10px;
+    outline: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link {
+    display: flex;
+    color: white;
+    gap: 20px;
+    padding: 5px 10px;
+    border-right: 4px solid transparent;
+    font-size: 20px;
+}
+
+.link:hover {
+    border-right: 4px solid white;
+    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    background: rgb(45, 51, 89);
+}
