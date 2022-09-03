@@ -7,6 +7,7 @@ import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
+import { ImCross } from "react-icons/im";
 //routes
 const routes = [
   {
@@ -113,8 +114,9 @@ const SideBar = ({ children }) => {
               SideBarMenu
             </motion.h1>
           )}
-          <div className='bars'>
-            <FaBars onClick={toggle} />
+          <div className='bars' onClick={toggle}>
+            {/* <FaBars onClick={toggle} /> */}
+            {isOpen ? <ImCross /> : <FaBars />}
           </div>
         </div>
         <div className='search'>
