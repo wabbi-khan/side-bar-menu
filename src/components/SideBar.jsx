@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
@@ -111,7 +111,7 @@ const SideBar = ({ children }) => {
               variants={showAnimation}
               className='logo'
             >
-              SideBarMenu
+              Logo
             </motion.h1>
           )}
           <div className='bars' onClick={toggle}>
