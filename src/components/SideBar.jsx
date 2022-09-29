@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
+import { BiAnalyse } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { ImCross } from "react-icons/im";
+import { useStateValue } from "../context/StateProvider";
+
 //routes
 const routes = [
   {
@@ -54,25 +56,27 @@ const routes = [
 ];
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [{ user }] = useStateValue();
+  console.log(user);
   const toggle = () => setIsOpen(!isOpen);
-  const inputAnimation = {
-    hidden: {
-      width: 0,
-      padding: 0,
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-      },
-    },
-    show: {
-      width: "160px",
-      padding: "5px 10px",
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
+  // const inputAnimation = {
+  //   hidden: {
+  //     width: 0,
+  //     padding: 0,
+  //     opacity: 0,
+  //     transition: {
+  //       duration: 0.2,
+  //     },
+  //   },
+  //   show: {
+  //     width: "160px",
+  //     padding: "5px 10px",
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.2,
+  //     },
+  //   },
+  // };
   const showAnimation = {
     hidden: {
       width: 0,
@@ -93,7 +97,7 @@ const SideBar = ({ children }) => {
     <div className='main-container'>
       <motion.div
         animate={{
-          width: isOpen ? "250px" : "45px",
+          width: isOpen ? "250px" : "55px",
           transition: {
             duration: 0.5,
             type: "spring",
@@ -121,18 +125,15 @@ const SideBar = ({ children }) => {
         </div>
         <div className='search'>
           <div className='search_icon'>
-            <BiSearch />
+            <motion.img
+              whileTap={{ scale: 0.5 }}
+              src={user.photoURL}
+              alt='userprofile'
+              referrerpolicy='no-referrer'
+            />
           </div>
           <AnimatePresence>
-            {isOpen && (
-              <motion.input
-                initial='hidden'
-                animate='show'
-                exit='hidden'
-                variants={inputAnimation}
-                placeholder='Search ...'
-              />
-            )}
+            {isOpen && <p> {user.displayName} </p>}
           </AnimatePresence>
         </div>
         <section className='routes'>
@@ -153,8 +154,7 @@ const SideBar = ({ children }) => {
                     variants={showAnimation}
                     className='link_text'
                   >
-                    {" "}
-                    {item.name}{" "}
+                    {item.name}
                   </motion.div>
                 )}
               </AnimatePresence>
