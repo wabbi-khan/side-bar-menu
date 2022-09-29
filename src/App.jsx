@@ -56,7 +56,7 @@ function App() {
         </button>
       ) : (
         <p className='login'>
-          please Loging your main account
+          please Login your main account
           <button onClick={login}>Login</button>
         </p>
       )}
